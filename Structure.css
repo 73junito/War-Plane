@@ -1,0 +1,27 @@
+FlightSimProject/
+├── .gitignore
+├── README.md
+├── LICENSE
+├── Docs/
+│   ├── Design_Document.pdf
+│   ├── Flight_Manuals_Summary.md
+│   └── Feature_Map.png
+├── Config/
+│   └── DefaultEngine.ini
+├── Source/
+│   └── FlightSim/
+│       ├── FlightSim.Build.cs
+│       ├── FlightVehicle.cpp / .h
+│       ├── InstrumentPanel.cpp / .h
+│       ├── ATCController.cpp / .h
+│       ├── WeatherSystem.cpp / .h
+│       └── TrainingModule.cpp / .h
+├── Content/
+│   ├── Aircraft/
+│   │   ├── SR71/
+│   │   └── Cougar/
+│   ├── UI/
+│   └── Maps/
+├── Scripts/
+│   └── Checklist_XML_Generator.py
+└── Plugins/
