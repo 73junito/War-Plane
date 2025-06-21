@@ -1,0 +1,16 @@
+FlightSimProject/
+├── Docs/
+│   └── SR71_Systems_Guide.md         ← extracted from SR71_Real_Docs.zip
+├── Source/
+│   └── FlightSim/
+│       ├── SR71Vehicle.cpp / .h      ← base flight model
+│       ├── EngineThermalSystem.cpp
+│       ├── BlackbirdHUD.cpp
+│       └── FlightProceduresManager.cpp
+├── Content/
+│   └── Aircraft/
+│       └── SR71/
+│           ├── SR71_Cockpit.uasset   ← full virtual cockpit
+│           ├── SR71_Audio/           ← engine, comms, ambient
+│           └── SR71_Missions/
+│               └── HighAltitudeRecon.umap
