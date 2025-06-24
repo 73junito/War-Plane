@@ -1,0 +1,87 @@
+import { AirportData, RunwayData } from '../types';
+
+export class AirportLoader {
+    private airports: Map<string, AirportData> = new Map();
+
+    public async loadAirports(): Promise<void> {
+        // This will load from your CSV files
+        const csvData = await this.loadCSV('../../../airports/airports.csv');
+        this.parseAirportData(csvData);
+    }
+
+    private async loadCSV(filepath: string): Promise<string> {
+        try {
+            const response = await fetch(filepath);
+            return await response.text();
+        } catch (error) {
+            console.warn('Could not load airport data:', error);
+            return this.getDefaultAirports();
+        }
+    }
+
+    private parseAirportData(csvData: string): void {
+        const lines = csvData.split('\n');
+        const headers = lines[0].split(',');
+        
+        for (let i = 1; i < lines.length; i++) {
+            const values = lines[i].split(',');
+            if (values.length >= 4) {
+                const airport: AirportData = {
+                    ident: values[0]?.trim() || '',
+                    name: values[1]?.trim() || '',
+                    latitude: parseFloat(values[2]) || 0,
+                    longitude: parseFloat(values[3]) || 0,
+                    elevation: parseFloat(values[4]) || 0,
+                    runways: this.generateDefaultRunways()
+                };
+                
+                if (airport.ident) {
+                    this.airports.set(airport.ident, airport);
+                }
+            }
+        }
+    }
+
+    private generateDefaultRunways(): RunwayData[] {
+        return [{
+            length: 3000, // 3km default
+            width: 45,    // 45m default
+            heading: 90,  // East-West
+            surface: 'asphalt'
+        }];
+    }
+
+    private getDefaultAirports(): string {
+        return `ident,name,latitude,longitude,elevation
+KJFK,John F Kennedy International Airport,40.6398,-73.7789,4
+KLAX,Los Angeles International Airport,33.9425,-118.4081,38
+KORD,Chicago O'Hare International Airport,41.9786,-87.9048,205
+KATL,Hartsfield Jackson Atlanta International Airport,33.6407,-84.4277,313`;
+    }
+
+    public getAirport(ident: string): AirportData | undefined {
+        return this.airports.get(ident);
+    }
+
+    public getAllAirports(): AirportData[] {
+        return Array.from(this.airports.values());
+    }
+
+    public getNearbyAirports(lat: number, lon: number, radiusKm: number = 100): AirportData[] {
+        return this.getAllAirports().filter(airport => {
+            const distance = this.calculateDistance(lat, lon, airport.latitude, airport.longitude);
+            return distance <= radiusKm;
+        });
+    }
+
+    private calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
+        const R = 6371; // Earth's radius in km
+        const dLat = (lat2 - lat1) * Math.PI / 180;
+        const dLon = (lon2 - lon1) * Math.PI / 180;
+        const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                  Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                  Math.sin(dLon/2) * Math.sin(dLon/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        return R * c;
+    }
+}

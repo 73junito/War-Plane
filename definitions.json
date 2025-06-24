@@ -1,0 +1,38 @@
+{
+  "Vector3D": {
+    "x": 0,
+    "y": 0,
+    "z": 0
+  },
+  "AircraftState": {
+    "position": { "x": 0, "y": 0, "z": 0 },
+    "velocity": { "x": 0, "y": 0, "z": 0 },
+    "acceleration": { "x": 0, "y": 0, "z": 0 },
+    "rotation": { "x": 0, "y": 0, "z": 0 },
+    "fuel": 100,
+    "enginePower": 1
+  },
+  "FlightControls": {
+    "throttle": 0,
+    "pitch": 0,
+    "roll": 0,
+    "yaw": 0,
+    "flaps": 0,
+    "gear": true
+  },
+  "AirportData": {
+    "ident": "ABC",
+    "name": "Sample Airport",
+    "latitude": 0,
+    "longitude": 0,
+    "elevation": 0,
+    "runways": [
+      {
+        "length": 1000,
+        "width": 30,
+        "heading": 90,
+        "surface": "asphalt"
+      }
+    ]
+  }
+}

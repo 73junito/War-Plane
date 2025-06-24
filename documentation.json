@@ -1,0 +1,45 @@
+{
+  "title": "Flight Simulator",
+  "author": "Rafael Rodriguez",
+  "license": "MIT",
+  "overview": "An immersive flight simulator built with TypeScript featuring realistic physics, aircraft controls, and flight dynamics.",
+  "features": [
+	"Realistic flight physics (lift, drag, thrust, gravity)",
+	"Interactive flight controls",
+	"HUD display with flight instruments",
+	"Attitude indicator and compass",
+	"Multiple aircraft support",
+	"Airport integration"
+  ],
+  "controls": {
+	"W/S": "Throttle Up/Down",
+	"Arrow Keys": "Pitch (Up/Down) and Roll (Left/Right)",
+	"A/D": "Yaw Left/Right",
+	"G": "Toggle Landing Gear"
+  },
+  "installation": [
+	"npm install",
+	"npm run build"
+  ],
+  "usage": "Open index.html in a web browser to start the simulator.",
+  "development": [
+	"npm run dev  # Watch mode for development"
+  ],
+  "projectStructure": [
+	"src/",
+	"├── main.ts              # Entry point",
+	"├── aircraft/            # Aircraft systems",
+	"├── physics/             # Physics engine",
+	"├── graphics/            # Rendering system",
+	"├── input/               # Input handling",
+	"└── types/               # Type definitions"
+  ],
+  "futureEnhancements": [
+	"Weather system",
+	"Multiple aircraft models",
+	"Multiplayer support",
+	"Advanced instruments",
+	"Terrain mapping",
+	"Airport tower communication"
+  ]
+}

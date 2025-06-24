@@ -1,0 +1,30 @@
+{
+    "name": "SR-71 Blackbird",
+    "type": "reconnaissance",
+    "specifications": {
+        "mass": 77110,
+        "maxThrust": 145120,
+        "wingArea": 167,
+        "dragCoefficient": 0.016,
+        "liftCoefficient": 0.6,
+        "maxSpeed": 1100,
+        "cruiseAltitude": 25908,
+        "maxAltitude": 30480,
+        "fuelCapacity": 46180,
+        "range": 5925000
+    },
+    "performance": {
+        "takeoffSpeed": 92,
+        "landingSpeed": 83,
+        "climbRate": 60,
+        "turnRate": 0.5,
+        "maxG": 2.5
+    },
+    "engines": {
+        "count": 2,
+        "type": "Pratt & Whitney J58",
+        "afterburner": true,
+        "thrustWithAfterburner": 145120,
+        "thrustWithoutAfterburner": 111206
+    }
+}
