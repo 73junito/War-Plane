@@ -1,0 +1,55 @@
+{
+  "airports": [
+    {
+      "icao": "KATL",
+      "iata": "ATL",
+      "name": "Hartsfield-Jackson Atlanta International Airport",
+      "latitude": 33.6407,
+      "longitude": -84.4277,
+      "elevation_ft": 1026,
+      "iso_country": "US",
+      "timezone": "America/New_York"
+    },
+    {
+      "icao": "OMDB",
+      "iata": "DXB",
+      "name": "Dubai International Airport",
+      "latitude": 25.2532,
+      "longitude": 55.3657,
+      "elevation_ft": 62,
+      "iso_country": "AE",
+      "timezone": "Asia/Dubai"
+    },
+    {
+      "icao": "KDFW",
+      "iata": "DFW",
+      "name": "Dallas/Fort Worth International Airport",
+      "latitude": 32.8998,
+      "longitude": -97.0403,
+      "elevation_ft": 607,
+      "iso_country": "US",
+      "timezone": "America/Chicago"
+    },
+    {
+      "icao": "RJTT",
+      "iata": "HND",
+      "name": "Tokyo Haneda Airport",
+      "latitude": 35.5494,
+      "longitude": 139.7798,
+      "elevation_ft": 21,
+      "iso_country": "JP",
+      "timezone": "Asia/Tokyo"
+    },
+    {
+      "icao": "EGLL",
+      "iata": "LHR",
+      "name": "London Heathrow Airport",
+      "latitude": 51.4700,
+      "longitude": -0.4543,
+      "elevation_ft": 83,
+      "iso_country": "GB",
+      "timezone": "Europe/London"
+    }
+    // ... 95 more entries
+  ]
+}
