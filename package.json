@@ -1,27 +1,30 @@
 {
-  "name": "war-plane-flight-simulator",
+  "name": "flight-simulator",
   "version": "1.0.0",
-  "description": "Immersive flight simulator experience",
-  "main": "dist/main.js",
-  "author": "Rafael Rodriguez",
-  "license": "MIT",
-  "keywords": ["flight-simulator", "aviation", "typescript", "game"],
+  "description": "A flight simulator application that simulates aircraft behavior and environment.",
+  "main": "src/main.ts",
   "scripts": {
-    "build": "npx tsc",
+    "build": "tsc",
     "start": "node dist/main.js",
-    "dev": "npx tsc --watch",
-    "serve": "npx http-server . -p 8080"
+    "watch": "tsc -w"
   },
   "dependencies": {
-    "three": "^0.158.0"
+    "three": "^0.132.2"
   },
   "devDependencies": {
-    "@types/three": "^0.158.0",
-    "typescript": "^5.0.0",
-    "http-server": "^14.1.1"
+    "typescript": "^4.5.4",
+    "@types/node": "^16.11.7"
   },
-  "engines": {
-    "node": ">=16.0.0"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/flight-simulator.git"
   },
-  "private": true
+  "keywords": [
+    "flight",
+    "simulator",
+    "3D",
+    "aerodynamics"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
 }
