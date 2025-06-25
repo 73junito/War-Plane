@@ -1,63 +1,23 @@
-# Flight Simulator
+# SR-71 Flight Simulator – Unreal Engine
 
-## Overview
-This flight simulator project is designed to provide an immersive experience of flying various aircraft. It includes features for realistic physics, user controls, and stunning graphics.
+A realistic high-altitude simulator featuring the legendary SR-71 Blackbird.
 
-## Project Structure
-```
-flight-simulator
-├── src
-│   ├── main.ts
-│   ├── aircraft
-│   │   ├── aircraft.ts
-│   │   └── controls.ts
-│   ├── physics
-│   │   ├── engine.ts
-│   │   └── aerodynamics.ts
-│   ├── graphics
-│   │   ├── renderer.ts
-│   │   └── scene.ts
-│   ├── input
-│   │   └── inputHandler.ts
-│   └── types
-│       └── index.ts
-├── assets
-│   ├── models
-│   └── textures
-├── package.json
-├── tsconfig.json
-└── README.md
-```
+## Features
 
-## Setup Instructions
-1. Clone the repository:
-   ```
-   git clone <repository-url>
-   ```
-2. Navigate to the project directory:
-   ```
-   cd flight-simulator
-   ```
-3. Install the dependencies:
-   ```
-   npm install
-   ```
-4. Compile the TypeScript files:
-   ```
-   npm run build
-   ```
-5. Run the simulator:
-   ```
-   npm start
-   ```
+- True-to-life flight dynamics and stress modeling
+- Interactive 3D cockpit
+- Mission scripting (reconnaissance, speed runs)
+- Real FAA navigation + ATC systems
+- Full procedural training mode
 
-## Usage
-- Use the controls to navigate the aircraft.
-- Adjust settings in the configuration files as needed.
-- Explore different aircraft models and environments.
+## Build Instructions
 
-## Contributing
-Contributions are welcome! Please submit a pull request or open an issue for any enhancements or bug fixes.
+1. Clone repo
+2. Open `FlightSim.uproject` in Unreal Engine 5.x
+3. Compile using Visual Studio (C++)
+4. Run `HighAltitudeRecon.umap`
 
-## License
-This project is licensed under the MIT License.
+## Credits
+
+- FAA Manuals (2024)
+- Declassified SR-71 Operations Docs
