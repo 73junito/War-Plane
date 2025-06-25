@@ -1,47 +1,58 @@
 import { Aircraft } from './aircraft/aircraft';
-import { Controls } from './aircraft/controls';
-import { Engine } from './physics/engine';
-import { Aerodynamics } from './physics/aerodynamics';
+import { PhysicsEngine } from './physics/engine';
 import { Renderer } from './graphics/renderer';
-import { Scene } from './graphics/scene';
 import { InputHandler } from './input/inputHandler';
+import { FlightControls } from './definitions';
 
 class FlightSimulator {
     private aircraft: Aircraft;
-    private controls: Controls;
-    private engine: Engine;
-    private aerodynamics: Aerodynamics;
+    private physics: PhysicsEngine;
     private renderer: Renderer;
-    private scene: Scene;
-    private inputHandler: InputHandler;
+    private input: InputHandler;
+    private isRunning: boolean = false;
 
     constructor() {
         this.aircraft = new Aircraft();
-        this.controls = new Controls();
-        this.engine = new Engine();
-        this.aerodynamics = new Aerodynamics();
+        this.physics = new PhysicsEngine();
         this.renderer = new Renderer();
-        this.scene = new Scene();
-        this.inputHandler = new InputHandler();
+        this.input = new InputHandler();
+        
+        this.setupEventListeners();
     }
 
-    public initialize(): void {
-        this.renderer.initializeGraphics();
-        this.scene.addObject(this.aircraft);
-        this.inputHandler.listenForInput();
-        this.mainLoop();
-    }
-
-    private mainLoop(): void {
-        const update = () => {
-            this.controls.updateControls();
-            this.aircraft.update();
-            this.renderer.renderScene(this.scene);
-            requestAnimationFrame(update);
+    private setupEventListeners(): void {
+        this.input.onControlsChange = (controls: FlightControls) => {
+            this.aircraft.updateControls(controls);
         };
-        update();
+    }
+
+    public start(): void {
+        this.isRunning = true;
+        this.gameLoop();
+    }
+
+    public stop(): void {
+        this.isRunning = false;
+    }
+
+    private gameLoop(): void {
+        if (!this.isRunning) return;
+
+        const deltaTime = 1/60; // 60 FPS
+        
+        // Update physics
+        this.physics.update(this.aircraft, deltaTime);
+        
+        // Render frame
+        this.renderer.render(this.aircraft);
+        
+        // Continue loop
+        requestAnimationFrame(() => this.gameLoop());
     }
 }
 
+// Initialize and start the simulator
 const simulator = new FlightSimulator();
-simulator.initialize();
+simulator.start();
+
+console.log('War Plane Flight Simulator started!');
