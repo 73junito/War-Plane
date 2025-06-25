@@ -25,3 +25,21 @@ FlightSimProject/
 ├── Scripts/
 │   └── Checklist_XML_Generator.py
 └── Plugins/
+Z:\War Plane\
+├── package.json
+├── tsconfig.json
+├── index.html
+├── src\
+│   ├── main.ts
+│   ├── definitions.ts
+│   ├── aircraft\
+│   │   ├── aircraft.ts
+│   │   └── aircraftConfig.ts
+│   ├── physics\
+│   │   ├── engine.ts
+│   │   └── aerodynamics.ts
+│   ├── graphics\
+│   │   └── renderer.ts
+│   └── input\
+│       └── inputHandler.ts
+└── dist\ (created after build)

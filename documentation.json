@@ -1,45 +1,168 @@
 {
-  "title": "Flight Simulator",
+  "title": "War Plane Flight Simulator",
   "author": "Rafael Rodriguez",
   "license": "MIT",
-  "overview": "An immersive flight simulator built with TypeScript featuring realistic physics, aircraft controls, and flight dynamics.",
+  "version": "1.0.0",
+  "overview": "An immersive flight simulator built with TypeScript featuring realistic physics, aircraft controls, and flight dynamics. Experience the thrill of piloting military aircraft with authentic flight mechanics.",
   "features": [
-	"Realistic flight physics (lift, drag, thrust, gravity)",
-	"Interactive flight controls",
-	"HUD display with flight instruments",
-	"Attitude indicator and compass",
-	"Multiple aircraft support",
-	"Airport integration"
+	"Realistic Flight Physics: Lift, drag, thrust, gravity simulation",
+	"Interactive Controls: Keyboard-based flight controls",
+	"Advanced HUD: Speed, altitude, fuel, throttle indicators",
+	"Flight Instruments: Attitude indicator and compass",
+	"Aircraft Systems: SR-71 Blackbird configuration",
+	"Airport Integration: Real airport data from CSV files",
+	"Ground Collision: Basic terrain interaction"
   ],
-  "controls": {
-	"W/S": "Throttle Up/Down",
-	"Arrow Keys": "Pitch (Up/Down) and Roll (Left/Right)",
-	"A/D": "Yaw Left/Right",
-	"G": "Toggle Landing Gear"
-  },
-  "installation": [
+  "controls": [
+	{ "key": "W/S", "action": "Throttle Up/Down" },
+	{ "key": "↑/↓", "action": "Pitch Control (Nose Up/Down)" },
+	{ "key": "←/→", "action": "Roll Control (Bank Left/Right)" },
+	{ "key": "A/D", "action": "Yaw Control (Rudder Left/Right)" },
+	{ "key": "G", "action": "Toggle Landing Gear" }
+  ],
+  "quickStart": [
 	"npm install",
-	"npm run build"
+	"npm run build",
+	"open index.html"
   ],
-  "usage": "Open index.html in a web browser to start the simulator.",
   "development": [
-	"npm run dev  # Watch mode for development"
+	"npm run dev",
+	"npm run clean"
   ],
   "projectStructure": [
-	"src/",
-	"├── main.ts              # Entry point",
-	"├── aircraft/            # Aircraft systems",
-	"├── physics/             # Physics engine",
-	"├── graphics/            # Rendering system",
-	"├── input/               # Input handling",
-	"└── types/               # Type definitions"
+	"War Plane/",
+	"├── flight-simulator/",
+	"│   ├── src/",
+	"│   │   ├── main.ts              # Entry point",
+	"│   │   ├── aircraft/            # Aircraft systems",
+	"│   │   │   ├── aircraft.ts      # Main aircraft class",
+	"│   │   │   └── controls.ts      # Control systems",
+	"│   │   ├── physics/             # Physics engine",
+	"│   │   │   ├── engine.ts        # Physics calculations",
+	"│   │   │   └── aerodynamics.ts  # Flight dynamics",
+	"│   │   ├── graphics/            # Rendering system",
+	"│   │   │   ├── renderer.ts      # Main renderer",
+	"│   │   │   └── scene.ts         # 3D scene management",
+	"│   │   ├── input/               # Input handling",
+	"│   │   │   └── inputHandler.ts  # Keyboard controls",
+	"│   │   └── types/               # Type definitions",
+	"│   │       └── index.ts         # TypeScript interfaces",
+	"│   ├── assets/                  # Game assets",
+	"│   │   ├── models/              # 3D models",
+	"│   │   └── textures/            # Texture files",
+	"│   ├── dist/                    # Compiled output",
+	"│   ├── package.json             # Dependencies",
+	"│   ├── tsconfig.json            # TypeScript config",
+	"│   ├── LICENSE                  # MIT License",
+	"│   └── index.html               # Game launcher",
+	"├── airports/                    # Airport data (CSV)",
+	"├── airplanes/                   # Aircraft specifications",
+	"└── README.md                    # This file"
+  ],
+  "aircraftSpecifications": {
+	"model": "SR-71 Blackbird",
+	"maxSpeed": "Mach 3.3 (1,100 m/s)",
+	"serviceCeiling": "85,000 ft (25,908 m)",
+	"engines": "Twin Pratt & Whitney J58",
+	"mass": "77,110 kg (170,000 lbs)"
+  },
+  "airportIntegration": {
+	"description": "The simulator loads real airport data from CSV files including:",
+	"airports": ["KJFK", "KLAX", "KORD", "KATL"],
+	"features": [
+	  "Runway specifications",
+	  "Geographic coordinates",
+	  "Elevation data"
+	]
+  },
+  "physicsModel": [
+	"Aerodynamic Forces: Lift, drag, thrust",
+	"Environmental: Gravity, air density",
+	"Flight Dynamics: Pitch, roll, yaw responses",
+	"Ground Interaction: Basic collision detection"
   ],
   "futureEnhancements": [
-	"Weather system",
+	"Weather system integration",
 	"Multiple aircraft models",
 	"Multiplayer support",
-	"Advanced instruments",
+	"Advanced instrument panel",
 	"Terrain mapping",
-	"Airport tower communication"
-  ]
+	"Radio navigation",
+	"Air traffic control",
+	"Mission scenarios"
+  ],
+  "contributing": "This is a personal project, but suggestions and improvements are welcome!",
+  "note": "Built with TypeScript, Three.js, and passion for aviation"
 }
+```
+
+## 📁 Project Structure
+```
+War Plane/
+├── flight-simulator/
+│   ├── src/
+│   │   ├── main.ts              # Entry point
+│   │   ├── aircraft/            # Aircraft systems
+│   │   │   ├── aircraft.ts      # Main aircraft class
+│   │   │   └── controls.ts      # Control systems
+│   │   ├── physics/             # Physics engine
+│   │   │   ├── engine.ts        # Physics calculations
+│   │   │   └── aerodynamics.ts  # Flight dynamics
+│   │   ├── graphics/            # Rendering system
+│   │   │   ├── renderer.ts      # Main renderer
+│   │   │   └── scene.ts         # 3D scene management
+│   │   ├── input/               # Input handling
+│   │   │   └── inputHandler.ts  # Keyboard controls
+│   │   └── types/               # Type definitions
+│   │       └── index.ts         # TypeScript interfaces
+│   ├── assets/                  # Game assets
+│   │   ├── models/              # 3D models
+│   │   └── textures/            # Texture files
+│   ├── dist/                    # Compiled output
+│   ├── package.json             # Dependencies
+│   ├── tsconfig.json            # TypeScript config
+│   ├── LICENSE                  # MIT License
+│   └── index.html               # Game launcher
+├── airports/                    # Airport data (CSV)
+├── airplanes/                   # Aircraft specifications
+└── README.md                    # This file
+```
+
+## 🛩️ Aircraft Specifications
+Currently featuring the **SR-71 Blackbird**:
+- **Max Speed**: Mach 3.3 (1,100 m/s)
+- **Service Ceiling**: 85,000 ft (25,908 m)
+- **Engines**: Twin Pratt & Whitney J58
+- **Mass**: 77,110 kg (170,000 lbs)
+
+## 🏢 Airport Integration
+The simulator loads real airport data from CSV files including:
+- International airports (KJFK, KLAX, KORD, KATL)
+- Runway specifications
+- Geographic coordinates
+- Elevation data
+
+## 🔬 Physics Model
+- **Aerodynamic Forces**: Lift, drag, thrust
+- **Environmental**: Gravity, air density
+- **Flight Dynamics**: Pitch, roll, yaw responses
+- **Ground Interaction**: Basic collision detection
+
+## 🎯 Future Enhancements
+- [ ] Weather system integration
+- [ ] Multiple aircraft models
+- [ ] Multiplayer support
+- [ ] Advanced instrument panel
+- [ ] Terrain mapping
+- [ ] Radio navigation
+- [ ] Air traffic control
+- [ ] Mission scenarios
+
+## 📄 License
+MIT License - Copyright (c) 2025 Rafael Rodriguez
+
+## 🤝 Contributing
+This is a personal project, but suggestions and improvements are welcome!
+
+---
+*Built with TypeScript, Three.js, and passion for aviation* ✈️
